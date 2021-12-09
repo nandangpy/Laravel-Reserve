@@ -33,40 +33,18 @@ Route::get('/appointment', [HomeController::class, 'appointment']);
 Route::group([
     'middleware' => ['auth' => 'CheckRole:customer']
 ], function () {
-    // cart = MENENTUKAN BARBER & WAKTU RESERVASI = OrderController
+    
     Route::resource('/cart', LocationController::class);
     Route::post('/location/{id}', [LocationController::class, 'location'])->name('location');
 
-    // checkout = PILIH LAYANAN = ReservasiController
+    
     Route::resource('order', OrderController::class);
     Route::get('order/{id}', [OrderController::class, 'kurir']);
-    // Buat menghitung Layanan dan menghitung durasi
+    
     Route::post('jasa', [OrderController::class, 'jasa'])->name('jasa');
 
-    // Pesan
     Route::resource('history', HistoryController::class);
-
-
-
-    // //Transaksi
-    // Route::get('transaksi/{id_barber}', [TransaksiController::class, 'barber']);
-    // Route::get('transaksi/{id_barber}', [TransaksiController::class, 'show']);
-
-    // //gawe jupuk nilai id_barber
-
-    // // Route::resource('transaksi', TransaksiController::class);
-    // // Route::get('transaksi/step-one', 'TransaksiController@stepOne')->name('Transaksi.create.step.one');
-    // Route::get('transaksi/step-one', [TransaksiController::class, 'stepOne'])->name('stepOne');
-    // // Route::post('transaksi/step-one', 'TransaksiController@postCreateStepOne')->name('Transaksi.create.step.one.post');
-    // Route::post('transaksi/step-one', [TransaksiController::class, 'postStepOne'])->name('poststepone');
-
-    // // Route::get('transaksi/step-two', 'TransaksiController@stepTwo')->name('Transaksi.create.step.two');
-    // Route::get('transaksi/step-two', [TransaksiController::class, 'stepOne'])->name('stepTwo');
-    // // Route::post('transaksi/step-two', 'TransaksiController@postCreateStepTwo')->name('Transaksi.create.step.two.post');
-    // Route::post('transaksi/step-two', [TransaksiController::class, 'postCreateStepOne'])->name('postCreateStepOne');
-
-    // Route::get('transaksi/step-three', 'TransaksiController@stepThree')->name('Transaksi.create.step.three');
-    // Route::post('transaksi/step-three', 'TransaksiController@postCreateStepThree')->name('Transaksi.create.step.three.post');
+    
 });
 
 Route::group([
@@ -90,6 +68,4 @@ Route::group([
 ], function () {
     Route::resource('layanan', LayananController::class);
     Route::resource('barber', BarberController::class);
-    // Route::resource('barber', [BarberController::class, 'index2']);
-    // Route::resource('transaksi', TransaksiController::class);
 });
