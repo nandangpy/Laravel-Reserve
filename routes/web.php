@@ -8,10 +8,7 @@ use App\Http\Controllers\Customer\LocationController;
 use App\Http\Controllers\Admin\LayananController;
 use App\Http\Controllers\Admin\BarberController;
 use App\Http\Controllers\Customer\OrderController;
-// use App\Http\Controllers\Customer\CartController;
-// use App\Http\Controllers\Customer\CheckoutController;
-// use App\Http\Controllers\Customer\HistoryController;
-// use App\Http\Controllers\Admin\TransaksiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +28,6 @@ use App\Http\Controllers\Customer\OrderController;
 // Route::view('/', 'welcome');
 Route::resource('home', HomeController::class);
 Route::get('/', [HomeController::class, 'index']);
-// Route::get('/transaksi', [TransaksiController::class, 'index']);
 Route::get('/appointment', [HomeController::class, 'appointment']);
 
 Route::group([
