@@ -82,7 +82,7 @@ class BarberController extends Controller
      */
     public function edit($id)
     {
-        //
+        //find id
         $barber = Barber::find($id);
         return view('pages.admin.barber-update', ['barber' => $barber]);
     }
