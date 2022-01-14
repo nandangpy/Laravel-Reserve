@@ -25,7 +25,6 @@ use App\Http\Controllers\Customer\OrderController;
 //     return view('welcome');
 // });
 
-// Route::view('/', 'welcome');
 Route::resource('home', HomeController::class);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/appointment', [HomeController::class, 'appointment']);
